@@ -4,6 +4,9 @@
   "type": "module",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js"
