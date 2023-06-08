@@ -14,3 +14,4 @@ Create a **config.env** file in **data** directory and add the following env var
     CLOUD_NAME=
     CLOUD_API_KEY= 
     CLOUD_API_SECRET=
+    NODE_ENV=

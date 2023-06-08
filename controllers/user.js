@@ -49,8 +49,8 @@ export const loginUser = catchAsyncError(async (req, res, next) => {
     .cookie("blogToken", token, {
       httpOnly: true,
       expires: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000),
-      SameSite: "None",
-      Secure: true,
+      sameSite: process.env.NODE_ENV === "Development" ? 'Lax' : 'None',
+      secure: process.env.NODE_ENV === "Development" ? false : true
     })
     .json({
       success: true,
@@ -67,6 +67,8 @@ export const logoutUser = catchAsyncError(async (req, res, next) => {
     .status(200)
     .cookie("blogToken", null, {
       expires: new Date(Date.now()),
+      sameSite: process.env.NODE_ENV === "Development" ? 'Lax' : 'None',
+      secure: process.env.NODE_ENV === "Development" ? false : true
     })
     .json({
       success: true,
